@@ -1,0 +1,64 @@
+<div class="container">
+  <ul>
+    <li id="pink">Pink</li>
+    <li id="salmon">Salmon</li>
+    <li id="blue">Blue</li>
+    <li id="green">Green</li>
+    <li id="red">Red</li>
+  </ul>
+</div>
+<script>
+// custom lightweight selector implementation
+// nickname: dolla
+
+window.$ = function(selector) {
+  return document.querySelector(selector);
+};
+
+window.$$ = function(selector) {
+  var items = {},
+    results = [],
+    length = 0,
+    i = 0;
+
+  // this doesn't work on IE 8- and Blackberry Browser
+  results = Array.prototype.slice.call(document.querySelectorAll(selector));
+
+  length = results.length;
+
+  // add the results to the items object
+  for (; i < length;) {
+    items[i] = results[i];
+    i++;
+  }
+
+  // add some additional properties to this items object to
+  // make it look like an array
+  items.length = length;
+  items.splice = [].splice();
+
+  // add an 'each' method to the items
+  items.each = function(callback) {
+    var i = 0;
+    for (; i < length;) {
+      callback.call(items[i]);
+      i++;
+    }
+  }
+
+  return items;
+};
+
+// end custom selector API
+
+(function() {
+
+  // select the green item and crank up the font size
+  $("#green").style.fontSize = "2em";
+
+  // select item1 by id and change it's background color to salmon
+  $$("li").each(function() {
+    this.style.backgroundColor = this.id;
+  });
+}());
+</script>

@@ -1,0 +1,9 @@
+<p id="zack">This element is on the page <strong>BEFORE</strong> all the scripts. No document ready needed.</p>
+<p id="slater">This element comes after the scripts and won't be available.</p>
+<script>
+// scripts at the bottom
+(function($) {
+  $("#zack").css("color", "green");
+  $("#slater").css("color", "red");
+}(jQuery));
+</script>

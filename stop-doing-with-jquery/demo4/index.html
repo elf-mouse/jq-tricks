@@ -1,0 +1,22 @@
+<div class="container">
+  <ul>
+    <li id="pink">Pink</li>
+    <li id="salmon">Salmon</li>
+    <li id="blue">Blue</li>
+    <li id="green">Green</li>
+    <li id="red">Red</li>
+  </ul>
+</div>
+<!-- Note that IE 8 only supports CSS 2.1 selectors for querySelector. -->
+<script>
+// create a global '$' variable
+window.$ = function(selector) {
+  return document.querySelector(selector);
+};
+
+(function() {
+  // select item1 by id and change it's background color to salmon
+  var item = $("#salmon").style.backgroundColor = "salmon";
+  console.log(item);
+}());
+</script>
