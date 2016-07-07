@@ -2,15 +2,15 @@
 
 ### 1. 把你的代码全部放在闭包里面
 
-```javascript
-(function($)  {   
-  // code here  
+```js
+(function($)  {
+  // code here
 })(jQuery);
 ```
 
 ### 2. 提供插件的默认选项
 
-```javascript
+```js
 var defaultSettings = {
   mode: 'Pencil',
   lineWidthMin: 0,
@@ -22,7 +22,7 @@ settings = $.extend({}, defaultSettings, settings || {});
 
 ### 3. 使用返回一个元素
 
-```javascript
+```js
 $.fn.wPaint = function(settings) {
   return this.each(function() {
     var elem = $(this);
@@ -33,7 +33,7 @@ $.fn.wPaint = function(settings) {
 
 ### 4. 一次性代码放在主循环以外
 
-```javascript
+```js
 var defaultSettings = {
   mode: 'Pencil',
   lineWidthMin: 0,
@@ -57,7 +57,7 @@ $.fn.wPaint = function(settings) {
 
 ### 6. 如何设置 Class Prototyping
 
-```javascript
+```js
 function Canvas(settings) {
   this.settings = settings;
   this.draw = false;
@@ -75,7 +75,7 @@ Canvas.prototype = {
 
 ### 7. 使用 “this” 对象
 
-```javascript
+```js
 Canvas.prototype = {
   generate: function() {
     // some code
@@ -96,7 +96,7 @@ Canvas.prototype = {
 
 ### 8. 在每一个对象中保存设置
 
-```javascript
+```js
 function Canvas(settings) {
   this.settings = settings;
   return this;
@@ -118,7 +118,7 @@ function Canvas(settings) {
 
 ### 10. 提供 Setter/Getter 选项
 
-```javascript
+```js
 var lineWidth = $('#container').wPaint('lineWidth');
 $('#container').wPaint('lineWidth', 5);
 ```

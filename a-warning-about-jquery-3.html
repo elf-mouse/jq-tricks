@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <!-- just jQuery 2 -->
+  <script>
+  $(function() {
+    throw new Error('boom!');
+    $('#app').text('hello world');
+  });
+  </script>
+  <!-- Option 1. Use `fail` and `throw` to re-raise errors -->
+  <script>
+  // jQuery.ready.then(function() {
+  //   throw new Error('boom');
+  //   $('#app').text('hello world');
+  // }).fail(function(error) {
+  //   throw error;
+  // });
+  </script>
+  <!-- Option 2: Don’t use jQuery for app intialization. -->
+  <script>
+  // throw new Error('boom');
+  // $('#app').text('hello world');
+  </script>
+</head>
+
+<body>
+  <div id="app"></div>
+</body>
+
+</html>
